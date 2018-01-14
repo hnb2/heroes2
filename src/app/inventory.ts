@@ -20,4 +20,9 @@ export class Inventory {
     this.items.push(item);
   }
 
+  public remove(item:Item):void {
+    const index:number = this.items.indexOf(item);
+    this.items.splice(index, 1);
+  }
+
 }

@@ -42,5 +42,6 @@ export class Creature {
 
   public usePotion(potion:Potion):void {
     this.hp = Math.min(this.hpMax, this.hp + potion.hpEffect);
+    this.inventory.remove(potion);
   }
 }

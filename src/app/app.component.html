@@ -30,7 +30,12 @@
       </mat-card-header>
       <mat-card-content>
         <ul *ngFor="let item of hero.inventory.getItems()">
-         <li>{{item.name}}</li>
+         <li>
+          {{item.name}}
+          <span *ngIf="item.hpEffect">
+            <button mat-button (click)="hero.usePotion(item)">Use</button>
+          </span>
+         </li>
         </ul>
       </mat-card-content>
     </mat-card>
