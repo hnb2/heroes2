@@ -8,6 +8,7 @@ import {AppComponent} from './app.component';
 import {HeroComponent} from './hero/hero.component';
 import {AdventureComponent} from './adventure/adventure.component';
 import {HeroService} from './hero.service';
+import {DataService} from './data.service';
 
 const routes:Routes = [
   {path: '', component: HeroComponent},
@@ -26,7 +27,10 @@ const routes:Routes = [
     MatButtonModule,
     MatCardModule
   ],
-  providers: [HeroService],
+  providers: [
+    HeroService,
+    DataService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
