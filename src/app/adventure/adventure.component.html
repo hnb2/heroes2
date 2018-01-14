@@ -14,8 +14,12 @@
 
   <mat-card-actions>
     <div>
-      <button mat-raised-button *ngIf="canAttack()" (click)="act('Attack', currentAdventure)">ATTACK</button>
-      <button mat-raised-button color="primary" *ngIf="canNext()" (click)="act('Next', currentAdventure)">NEXT</button>
+      <button mat-raised-button *ngIf="canAttack()" (click)="act('Attack', currentAdventure)">
+        <i class="material-icons">build</i> ATTACK
+      </button>
+      <button mat-raised-button color="primary" *ngIf="canNext()" (click)="act('Next', currentAdventure)">
+        <i class="material-icons">done</i>CONTINUE
+      </button>
     </div>
   </mat-card-actions>
 </mat-card>
