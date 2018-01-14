@@ -10,6 +10,10 @@
       <span *ngIf="! currentAdventure.creature.isDead()"> HP {{currentAdventure.creature.hp}} / {{currentAdventure.creature.hpMax}}</span>
       <span *ngIf="currentAdventure.creature.isDead()"> is dead.</span>
     </div>
+
+    <div *ngIf="currentAdventure.item">
+      <span>{{currentAdventure.item.name}}</span>
+    </div>
   </mat-card-content>
 
   <mat-card-actions>
