@@ -1,5 +1,6 @@
 import {Inventory} from './inventory';
 import {Item} from './item';
+import {Potion} from './potion';
 
 export class Creature {
 
@@ -37,5 +38,9 @@ export class Creature {
 
   public addToInventory(item:Item):void {
     this.inventory.add(item);
+  }
+
+  public usePotion(potion:Potion):void {
+    this.hp = Math.min(this.hpMax, this.hp + potion.hpEffect);
   }
 }

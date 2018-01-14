@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import {Creature} from './creature';
 import {Item} from './item';
+import {Potion} from './potion';
 
 export enum Action {
   Attack = 'Attack',
@@ -26,6 +27,7 @@ export class DataService {
     {level: 5, text: 'Well, well, well... Isn\'t it the Rabbit King ?!', creature: new Creature('Rabbit King', 10, 10, 2)},
     {level: 6, text: 'You see a bunch of rabbits crying over their deceased monarchs...'},
     {level: 7, text: 'You were about to leave when you found what you where looking for', item: new Item('Holy Carrot')},
+    {level: 8, text: 'Maybe a delicious carrot juice before leaving ?', item: new Potion('Carrot Juice', 5)},
   ];
 
   public getAdventures():Adventure[] {
