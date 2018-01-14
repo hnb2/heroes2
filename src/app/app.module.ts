@@ -2,7 +2,7 @@ import {BrowserModule} from '@angular/platform-browser';
 import {RouterModule, Routes} from '@angular/router';
 import {NgModule} from '@angular/core';
 
-import {MatButtonModule, MatCardModule} from '@angular/material';
+import {MatButtonModule, MatCardModule, MatGridListModule} from '@angular/material';
 
 import {AppComponent} from './app.component';
 import {HeroComponent} from './hero/hero.component';
@@ -25,7 +25,8 @@ const routes:Routes = [
     RouterModule.forRoot(routes, {enableTracing:false}),
     BrowserModule,
     MatButtonModule,
-    MatCardModule
+    MatCardModule,
+    MatGridListModule
   ],
   providers: [
     HeroService,

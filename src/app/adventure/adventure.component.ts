@@ -36,6 +36,10 @@ export class AdventureComponent implements OnInit {
         this.currentIndex ++;
         this.currentAdventure = this.adventures[this.currentIndex];
         break;
+      case Action.Take:
+        this.heroService.getHero().addToInventory(adventure.item);
+        adventure.item = undefined;
+        break;
       default:
         console.log('Is broken sir');
     }
@@ -53,6 +57,10 @@ export class AdventureComponent implements OnInit {
     const hasNextLevel:boolean = this.currentIndex < this.adventures.length - 1;
 
     return canGoNext && hasNextLevel;
+  }
+
+  public canTake():boolean {
+    return this.currentAdventure.item !== undefined;
   }
 
 }

@@ -17,6 +17,9 @@
       <button mat-raised-button *ngIf="canAttack()" (click)="act('Attack', currentAdventure)">
         <i class="material-icons">build</i> ATTACK
       </button>
+      <button mat-raised-button *ngIf="canTake()" (click)="act('Take', currentAdventure)">
+        <i class="material-icons">book</i>TAKE
+      </button>
       <button mat-raised-button color="primary" *ngIf="canNext()" (click)="act('Next', currentAdventure)">
         <i class="material-icons">done</i>CONTINUE
       </button>

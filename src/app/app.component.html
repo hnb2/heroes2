@@ -1,15 +1,40 @@
-<mat-card class="main">
-  <mat-card-header>
-    <div mat-card-avatar class="example-header-image">
-      <i class="material-icons">face</i>
-    </div>
-    <mat-card-title>{{hero.name}}</mat-card-title>
-    <mat-card-subtitle>Best Hero, Sir !</mat-card-subtitle>
-  </mat-card-header>
-  <mat-card-content>
-    <div class="hp-bar" [ngStyle]="{'width': hero.hpInPercent()}">
-      <p>HP: {{hero.hp}}/{{hero.hpMax}}</p>
-    </div>
-  </mat-card-content>
-</mat-card>
+<mat-grid-list cols="2" rowHeight="10em">
+  <mat-grid-tile colspan="1" rowspan="1">
+    <mat-card class="main">
+      <mat-card-header>
+        <div mat-card-avatar class="example-header-image">
+          <i class="material-icons">face</i>
+        </div>
+        <mat-card-title>{{hero.name}}</mat-card-title>
+        <mat-card-subtitle>Best Hero, Sir !</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+        <div class="hp-bar" [ngStyle]="{'width': hero.hpInPercent()}">
+          <p>HP: {{hero.hp}}/{{hero.hpMax}}</p>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </mat-grid-tile>
+
+  <mat-grid-tile colspan="1" rowspan="1">
+    <mat-card class="main">
+      <mat-card-header>
+        <div mat-card-avatar class="example-header-image">
+          <i class="material-icons">subject</i>
+        </div>
+        <mat-card-title>Inventory</mat-card-title>
+        <mat-card-subtitle>
+          <span *ngIf="hero.inventory.isEmpty()">Is empty, Sir !</span>
+          <span *ngIf="! hero.inventory.isEmpty()">Very nice, Sir !</span>
+        </mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+        <ul *ngFor="let item of hero.inventory.getItems()">
+         <li>{{item.name}}</li>
+        </ul>
+      </mat-card-content>
+    </mat-card>
+  </mat-grid-tile>
+</mat-grid-list>
+
 <router-outlet></router-outlet>
