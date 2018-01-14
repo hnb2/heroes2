@@ -1,13 +1,21 @@
-<div>
-  <h1>Level {{currentAdventure.level}}</h1>
-  <p>{{currentAdventure.text}}</p>
+<mat-card class="adventure">
+  <mat-card-header>
+    <mat-card-title>Level {{currentAdventure.level}}</mat-card-title>
+    <mat-card-subtitle>{{currentAdventure.text}}</mat-card-subtitle>
+  </mat-card-header>
 
-  <div *ngIf="currentAdventure.creature">
-    <span>{{currentAdventure.creature.name}}</span>
-    <span *ngIf="! currentAdventure.creature.isDead()"> HP {{currentAdventure.creature.hp}} / {{currentAdventure.creature.hpMax}}</span>
-    <span *ngIf="currentAdventure.creature.isDead()"> is dead.</span>
-  </div>
+  <mat-card-content>
+    <div *ngIf="currentAdventure.creature">
+      <span>{{currentAdventure.creature.name}}</span>
+      <span *ngIf="! currentAdventure.creature.isDead()"> HP {{currentAdventure.creature.hp}} / {{currentAdventure.creature.hpMax}}</span>
+      <span *ngIf="currentAdventure.creature.isDead()"> is dead.</span>
+    </div>
+  </mat-card-content>
 
-  <button *ngIf="canAttack()" (click)="act('Attack', currentAdventure)">ATTACK</button>
-  <button *ngIf="canNext()" (click)="act('Next', currentAdventure)">NEXT</button>
-</div>
+  <mat-card-actions>
+    <div>
+      <button mat-raised-button *ngIf="canAttack()" (click)="act('Attack', currentAdventure)">ATTACK</button>
+      <button mat-raised-button color="primary" *ngIf="canNext()" (click)="act('Next', currentAdventure)">NEXT</button>
+    </div>
+  </mat-card-actions>
+</mat-card>

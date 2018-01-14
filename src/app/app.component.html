@@ -1,9 +1,15 @@
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-
-  <p>Name: {{hero.name}}</p>
-  <p>HP: {{hero.hp}}/{{hero.hpMax}}</p>
-</div>
+<mat-card class="main">
+  <mat-card-header>
+    <div mat-card-avatar class="example-header-image">
+      <i class="material-icons">face</i>
+    </div>
+    <mat-card-title>{{hero.name}}</mat-card-title>
+    <mat-card-subtitle>Best Hero, Sir !</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+    <div class="hp-bar" [ngStyle]="{'width': hero.hpInPercent()}">
+      <p>HP: {{hero.hp}}/{{hero.hpMax}}</p>
+    </div>
+  </mat-card-content>
+</mat-card>
 <router-outlet></router-outlet>

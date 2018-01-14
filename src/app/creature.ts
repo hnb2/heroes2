@@ -24,4 +24,8 @@ export class Creature {
   public isDead():boolean {
     return this.hp === 0;
   }
+
+  public hpInPercent():string {
+    return `${this.hp / this.hpMax * 100}%`;
+  }
 }

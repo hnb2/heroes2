@@ -1,0 +1,9 @@
+.hp-bar {
+  height: 2em;
+  background-color: #E53935;
+  border: 1px solid black;
+}
+
+.hp-bar > p {
+  line-height: 0;
+}
