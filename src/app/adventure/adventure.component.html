@@ -1,0 +1,13 @@
+<div>
+  <h1>Level {{currentAdventure.level}}</h1>
+  <p>{{currentAdventure.text}}</p>
+
+  <div *ngIf="currentAdventure.creature">
+    <span>{{currentAdventure.creature.name}}</span>
+    <span *ngIf="! currentAdventure.creature.isDead()"> HP {{currentAdventure.creature.hp}} / {{currentAdventure.creature.hpMax}}</span>
+    <span *ngIf="currentAdventure.creature.isDead()"> is dead.</span>
+  </div>
+
+  <button *ngIf="canAttack()" (click)="act('Attack', currentAdventure)">ATTACK</button>
+  <button *ngIf="canNext()" (click)="act('Next', currentAdventure)">NEXT</button>
+</div>

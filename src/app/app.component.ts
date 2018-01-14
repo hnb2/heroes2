@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
+import {HeroService} from './hero.service';
+import {Creature} from './creature';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +8,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'app';
+  public title:string = 'Heroes';
+  public hero:Creature;
+
+  constructor(private heroService:HeroService) {
+    this.hero = this.heroService.getHero();
+  }
+
 }
