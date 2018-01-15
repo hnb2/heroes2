@@ -7,14 +7,18 @@ export class Creature {
   public name:string;
   public hp:number;
   public hpMax:number;
+  public mp:number;
+  public mpMax:number;
   public atk:number;
   public inventory:Inventory;
 
-  constructor(name:string, hp:number, hpMax:number, atk:number = 0) {
+  constructor(name:string, hp:number, hpMax:number, atk:number = 0,  mp:number = 0, mpMax:number = 0) {
     this.name = name;
     this.hp = hp;
     this.hpMax = hpMax;
     this.atk = atk;
+    this.mp = mp;
+    this.mpMax = mpMax;
     this.inventory = new Inventory();
   }
 
@@ -34,6 +38,10 @@ export class Creature {
 
   public hpInPercent():string {
     return `${this.hp / this.hpMax * 100}%`;
+  }
+
+  public mpInPercent():string {
+    return `${this.mp / this.mpMax * 100}%`;
   }
 
   public addToInventory(item:Item):void {

@@ -10,9 +10,13 @@
         <mat-card-subtitle>Knight</mat-card-subtitle>
       </mat-card-header>
       <mat-card-content>
-        <div class="hp-bar">
+        <div class="bar">
           <div class="hp-bar-filling" [ngStyle]="{'width': hero.hpInPercent()}"></div>
           <p>HP: {{hero.hp}}/{{hero.hpMax}}</p>
+        </div>
+        <div class="bar">
+          <div class="mp-bar-filling" [ngStyle]="{'width': hero.mpInPercent()}"></div>
+          <p>MP: {{hero.mp}}/{{hero.mpMax}}</p>
         </div>
       </mat-card-content>
     </mat-card>
