@@ -16,6 +16,10 @@ export class Inventory {
     return this.items.length === 0;
   }
 
+  public getNumberOfItems():number {
+    return this.items.length;
+  }
+
   public add(item:Item):void {
     this.items.push(item);
   }

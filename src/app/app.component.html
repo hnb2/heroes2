@@ -1,4 +1,5 @@
-<mat-grid-list cols="2" rowHeight="10em">
+<mat-grid-list cols="1" rowHeight="10em">
+
   <mat-grid-tile colspan="1" rowspan="1">
     <mat-card class="main">
       <mat-card-header>
@@ -16,19 +17,19 @@
     </mat-card>
   </mat-grid-tile>
 
+</mat-grid-list>
+
+<mat-grid-list cols="1" rowHeight="10em">
+
   <mat-grid-tile colspan="1" rowspan="1">
-    <mat-card class="main">
-      <mat-card-header>
-        <div mat-card-avatar class="example-header-image">
-          <i class="material-icons">subject</i>
-        </div>
-        <mat-card-title>Inventory</mat-card-title>
-        <mat-card-subtitle>
-          <span *ngIf="hero.inventory.isEmpty()">Is empty, Sir !</span>
-          <span *ngIf="! hero.inventory.isEmpty()">Very nice, Sir !</span>
-        </mat-card-subtitle>
-      </mat-card-header>
-      <mat-card-content>
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>Inventory</mat-panel-title>
+        <mat-panel-description>
+          <span *ngIf="hero.inventory.isEmpty()">Empty</span>
+          <span *ngIf="! hero.inventory.isEmpty()">{{hero.inventory.getNumberOfItems()}} item(s)</span>
+        </mat-panel-description>
+      </mat-expansion-panel-header>
         <ul *ngFor="let item of hero.inventory.getItems()">
          <li>
           {{item.name}}
@@ -37,9 +38,9 @@
           </span>
          </li>
         </ul>
-      </mat-card-content>
-    </mat-card>
+    </mat-expansion-panel>
   </mat-grid-tile>
+
 </mat-grid-list>
 
 <router-outlet></router-outlet>
