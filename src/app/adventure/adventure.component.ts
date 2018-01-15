@@ -11,6 +11,7 @@ import {DataService, Action, Adventure, World} from '../data.service';
 export class AdventureComponent implements OnInit {
 
   public currentAdventure:Adventure;
+  public currentWorld:World;
 
   private worlds:World[];
   private currentAdventureIndex:number = 0;
@@ -22,7 +23,8 @@ export class AdventureComponent implements OnInit {
 
   public ngOnInit():void {
     this.worlds = this.dataService.getWorlds();
-    this.currentAdventure = this.worlds[0].adventures[0];
+    this.currentWorld = this.worlds[0];
+    this.currentAdventure = this.currentWorld.adventures[0];
   }
 
   public act(action:Action, adventure:Adventure):void {
@@ -35,7 +37,7 @@ export class AdventureComponent implements OnInit {
         break;
       case Action.Next:
         this.currentAdventureIndex ++;
-        this.currentAdventure = this.worlds[this.currentWorldIndex].adventures[this.currentAdventureIndex];
+        this.currentAdventure = this.currentWorld.adventures[this.currentAdventureIndex];
         break;
       case Action.Take:
         this.heroService.getHero().addToInventory(adventure.item);
@@ -55,7 +57,7 @@ export class AdventureComponent implements OnInit {
     const canGoNext:boolean = ! this.currentAdventure.creature ||
       this.currentAdventure.creature.isDead();
 
-    const hasNextLevel:boolean = this.currentAdventureIndex < this.worlds[this.currentWorldIndex].adventures.length - 1;
+    const hasNextLevel:boolean = this.currentAdventureIndex < this.currentWorld.adventures.length - 1;
 
     return canGoNext && hasNextLevel;
   }

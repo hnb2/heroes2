@@ -39,6 +39,12 @@ export class DataService {
         {level: 9, text: 'Maybe a delicious carrot juice before leaving ?', item: new Potion('Carrot Juice', 5)},
         {level: 10, text: 'You take the way back home with the Holy Carrot, and you know things will never be the same...'}
       ]
+    },
+    {
+      level: 2,
+      adventures: [
+        {level: 1, text: 'You encounter a bandit', creature: new Creature('Forest Bandit', 10, 1)},
+      ]
     }
   ];
 
