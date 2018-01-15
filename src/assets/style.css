@@ -1,0 +1,131 @@
+@font-face {
+  font-family: 'icomoon';
+  src:  url('fonts/icomoon.eot?e0ycgj');
+  src:  url('fonts/icomoon.eot?e0ycgj#iefix') format('embedded-opentype'),
+    url('fonts/icomoon.ttf?e0ycgj') format('truetype'),
+    url('fonts/icomoon.woff?e0ycgj') format('woff'),
+    url('fonts/icomoon.svg?e0ycgj#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-archery:before {
+  content: "\e900";
+}
+.icon-axe:before {
+  content: "\e901";
+}
+.icon-axes:before {
+  content: "\e902";
+}
+.icon-banner:before {
+  content: "\e903";
+}
+.icon-castle:before {
+  content: "\e904";
+}
+.icon-catapult:before {
+  content: "\e905";
+}
+.icon-chest:before {
+  content: "\e906";
+}
+.icon-coach:before {
+  content: "\e907";
+}
+.icon-crossbow:before {
+  content: "\e908";
+}
+.icon-crown:before {
+  content: "\e909";
+}
+.icon-executioner:before {
+  content: "\e90a";
+}
+.icon-flag:before {
+  content: "\e90b";
+}
+.icon-fortress:before {
+  content: "\e90c";
+}
+.icon-helmet:before {
+  content: "\e90d";
+}
+.icon-horn:before {
+  content: "\e90e";
+}
+.icon-joker:before {
+  content: "\e90f";
+}
+.icon-king:before {
+  content: "\e910";
+}
+.icon-knight:before {
+  content: "\e911";
+}
+.icon-lute:before {
+  content: "\e912";
+}
+.icon-mill:before {
+  content: "\e913";
+}
+.icon-princess:before {
+  content: "\e914";
+}
+.icon-quiver:before {
+  content: "\e915";
+}
+.icon-scroll:before {
+  content: "\e916";
+}
+.icon-shield:before {
+  content: "\e917";
+}
+.icon-shield-1:before {
+  content: "\e918";
+}
+.icon-ship:before {
+  content: "\e919";
+}
+.icon-spears:before {
+  content: "\e91a";
+}
+.icon-stained-glass-window:before {
+  content: "\e91b";
+}
+.icon-sword:before {
+  content: "\e91c";
+}
+.icon-sword-1:before {
+  content: "\e91d";
+}
+.icon-sword-2:before {
+  content: "\e91e";
+}
+.icon-swords:before {
+  content: "\e91f";
+}
+.icon-torches:before {
+  content: "\e920";
+}
+.icon-tower:before {
+  content: "\e921";
+}
+.icon-tower-1:before {
+  content: "\e922";
+}
