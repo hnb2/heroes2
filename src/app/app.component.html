@@ -7,7 +7,6 @@
           <i class="material-icons">face</i>
         </div>
         <mat-card-title>{{hero.name}}</mat-card-title>
-        <mat-card-subtitle>Best Hero, Sir !</mat-card-subtitle>
       </mat-card-header>
       <mat-card-content>
         <div class="hp-bar" [ngStyle]="{'width': hero.hpInPercent()}">
@@ -16,10 +15,6 @@
       </mat-card-content>
     </mat-card>
   </mat-grid-tile>
-
-</mat-grid-list>
-
-<mat-grid-list cols="1" rowHeight="10em">
 
   <mat-grid-tile colspan="1" rowspan="1">
     <mat-expansion-panel>
