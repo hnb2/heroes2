@@ -17,7 +17,7 @@
   </mat-card-content>
 
   <mat-card-actions>
-    <div>
+    <div *ngIf="! hero.isDead()">
       <button mat-raised-button *ngIf="canAttack()" (click)="act('Attack', currentAdventure)">
         <i class="icon icon-swords"></i> ATTACK
       </button>
@@ -33,3 +33,7 @@
     </div>
   </mat-card-actions>
 </mat-card>
+
+<button *ngIf="hero.isDead()" mat-raised-button color="primary" routerLink="/" routerLinkActive="active">
+  <i class="icon icon-banner"></i>YOU ARE DEAD
+</button>

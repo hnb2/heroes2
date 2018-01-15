@@ -25,7 +25,8 @@ export interface World {
 @Injectable()
 export class DataService {
 
-  private worlds:World[] = [
+  public getWorlds():World[] {
+    return [
     {
       level: 1,
       adventures: [
@@ -44,13 +45,13 @@ export class DataService {
     {
       level: 2,
       adventures: [
-        {level: 1, text: 'You encounter a bandit', creature: new Creature('Forest Bandit', 10, 10, 1)},
+        {level: 1, text: 'You encounter a wounded bandit', creature: new Creature('Wounded Bandit', 8, 10, 1)},
+        {level: 2, text: 'You can see the end of the forest, finally'},
+        {level: 3, text: 'Oh, oh...It\'s actually a bandit camp', creature: new Creature('Forest Bandit', 10, 10, 1)},
+        {level: 4, text: 'More are coming !', creature: new Creature('Forest Bandit', 10, 10, 1)},
       ]
     }
   ];
-
-  public getWorlds():World[] {
-    return this.worlds;
   }
 
 }

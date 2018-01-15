@@ -12,6 +12,7 @@ export class AdventureComponent implements OnInit {
 
   public currentAdventure:Adventure;
   public currentWorld:World;
+  public hero:Creature;
 
   private worlds:World[];
   private currentAdventureIndex:number = 0;
@@ -22,6 +23,8 @@ export class AdventureComponent implements OnInit {
   }
 
   public ngOnInit():void {
+    console.log('onInit');
+    this.hero = this.heroService.getHero();
     this.worlds = this.dataService.getWorlds();
     this.currentWorld = this.worlds[0];
     this.currentAdventure = this.currentWorld.adventures[0];
@@ -30,15 +33,15 @@ export class AdventureComponent implements OnInit {
   public act(action:Action, adventure:Adventure):void {
     switch (action) {
       case Action.Attack:
-        this.heroService.getHero().attack(adventure.creature);
+        this.hero.attack(adventure.creature);
         if (! adventure.creature.isDead()) {
-          adventure.creature.attack(this.heroService.getHero());
+          adventure.creature.attack(this.hero);
         }
         break;
       case Action.SpecialAttack:
-        this.heroService.getHero().specialAttack(adventure.creature);
+        this.hero.specialAttack(adventure.creature);
         if (! adventure.creature.isDead()) {
-          adventure.creature.attack(this.heroService.getHero());
+          adventure.creature.attack(this.hero);
         }
         break;
       case Action.Next:
@@ -54,7 +57,7 @@ export class AdventureComponent implements OnInit {
         }
         break;
       case Action.Take:
-        this.heroService.getHero().addToInventory(adventure.item);
+        this.hero.addToInventory(adventure.item);
         adventure.item = undefined;
         break;
       default:
@@ -70,7 +73,7 @@ export class AdventureComponent implements OnInit {
   public canSpecialAttack():boolean {
     return this.currentAdventure.creature &&
       ! this.currentAdventure.creature.isDead() &&
-      this.heroService.getHero().canSpecialAttack();
+      this.hero.canSpecialAttack();
   }
 
   public canNext():boolean {

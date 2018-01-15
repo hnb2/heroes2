@@ -29,4 +29,10 @@ export class Inventory {
     this.items.splice(index, 1);
   }
 
+  public clear():void {
+    for (let i:number = this.items.length; i > 0; i--) {
+      this.items.pop();
+    }
+  }
+
 }
