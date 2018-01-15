@@ -1,12 +1,19 @@
 import {Item} from './item';
 
+export enum PotionType {
+  Health = 'Health',
+  Mana = 'Mana'
+}
+
 export class Potion extends Item {
 
-  public hpEffect:number;
+  public effect:number;
+  public type:PotionType;
 
-  constructor(name:string, hpEffect:number) {
+  constructor(name:string, effect:number, type:PotionType) {
     super(name);
-    this.hpEffect = hpEffect;
+    this.effect = effect;
+    this.type = type;
   }
 
 }

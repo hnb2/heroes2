@@ -1,6 +1,6 @@
 import {Inventory} from './inventory';
 import {Item} from './item';
-import {Potion} from './potion';
+import {Potion, PotionType} from './potion';
 
 export class Creature {
 
@@ -66,7 +66,12 @@ export class Creature {
   }
 
   public usePotion(potion:Potion):void {
-    this.hp = Math.min(this.hpMax, this.hp + potion.hpEffect);
+    if (potion.type === PotionType.Health) {
+      this.hp = Math.min(this.hpMax, this.hp + potion.effect);
+    } else {
+      this.mp = Math.min(this.mpMax, this.mp + potion.effect);
+    }
+
     this.inventory.remove(potion);
   }
 }

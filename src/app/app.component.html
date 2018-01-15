@@ -34,7 +34,7 @@
         <ul *ngFor="let item of hero.inventory.getItems()">
          <li>
           {{item.name}}
-          <span *ngIf="item.hpEffect">
+          <span *ngIf="item.effect">
             <button mat-button (click)="hero.usePotion(item)">Use</button>
           </span>
          </li>
