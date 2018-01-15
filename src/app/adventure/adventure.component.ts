@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Creature} from '../creature';
 import {HeroService} from '../hero.service';
-import {DataService, Action, Adventure} from '../data.service';
+import {DataService, Action, Adventure, World} from '../data.service';
 
 @Component({
   selector: 'app-adventure',
@@ -12,16 +12,17 @@ export class AdventureComponent implements OnInit {
 
   public currentAdventure:Adventure;
 
-  private adventures:Adventure[];
-  private currentIndex:number = 0;
+  private worlds:World[];
+  private currentAdventureIndex:number = 0;
+  private currentWorldIndex:number = 0;
 
   constructor(private heroService:HeroService,
               private dataService:DataService) {
   }
 
   public ngOnInit():void {
-    this.adventures = this.dataService.getAdventures();
-    this.currentAdventure = this.adventures[0];
+    this.worlds = this.dataService.getWorlds();
+    this.currentAdventure = this.worlds[0].adventures[0];
   }
 
   public act(action:Action, adventure:Adventure):void {
@@ -33,8 +34,8 @@ export class AdventureComponent implements OnInit {
         }
         break;
       case Action.Next:
-        this.currentIndex ++;
-        this.currentAdventure = this.adventures[this.currentIndex];
+        this.currentAdventureIndex ++;
+        this.currentAdventure = this.worlds[this.currentWorldIndex].adventures[this.currentAdventureIndex];
         break;
       case Action.Take:
         this.heroService.getHero().addToInventory(adventure.item);
@@ -54,7 +55,7 @@ export class AdventureComponent implements OnInit {
     const canGoNext:boolean = ! this.currentAdventure.creature ||
       this.currentAdventure.creature.isDead();
 
-    const hasNextLevel:boolean = this.currentIndex < this.adventures.length - 1;
+    const hasNextLevel:boolean = this.currentAdventureIndex < this.worlds[this.currentWorldIndex].adventures.length - 1;
 
     return canGoNext && hasNextLevel;
   }
