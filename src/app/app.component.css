@@ -1,9 +1,16 @@
 .hp-bar {
   height: 2em;
-  background-color: #E53935;
   border: 1px solid black;
+  position: relative;
+}
+
+.hp-bar-filling {
+  position: absolute;
+  height: 2em;
+  background-color: #E53935;
 }
 
 .hp-bar > p {
+  position: absolute;
   line-height: 0;
 }
