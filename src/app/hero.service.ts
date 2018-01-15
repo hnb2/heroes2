@@ -7,7 +7,7 @@ export class HeroService {
   private hero:Creature;
 
   constructor() {
-    this.hero = new Creature('Olaf the Hero', 20, 20, 2);
+    this.hero = new Creature('Sir Drinkalot', 20, 20, 2);
   }
 
   public getHero():Creature {
