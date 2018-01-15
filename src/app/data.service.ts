@@ -43,7 +43,7 @@ export class DataService {
     {
       level: 2,
       adventures: [
-        {level: 1, text: 'You encounter a bandit', creature: new Creature('Forest Bandit', 10, 1)},
+        {level: 1, text: 'You encounter a bandit', creature: new Creature('Forest Bandit', 10, 10, 1)},
       ]
     }
   ];

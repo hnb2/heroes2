@@ -36,8 +36,16 @@ export class AdventureComponent implements OnInit {
         }
         break;
       case Action.Next:
-        this.currentAdventureIndex ++;
-        this.currentAdventure = this.currentWorld.adventures[this.currentAdventureIndex];
+        if (this.currentAdventureIndex < this.currentWorld.adventures.length - 1) {
+          this.currentAdventureIndex ++;
+          this.currentAdventure = this.currentWorld.adventures[this.currentAdventureIndex];
+        } else {
+          this.currentAdventureIndex ++;
+          this.currentWorldIndex ++;
+          this.currentWorld = this.worlds[this.currentWorldIndex];
+          this.currentAdventureIndex = 0;
+          this.currentAdventure = this.currentWorld.adventures[0];
+        }
         break;
       case Action.Take:
         this.heroService.getHero().addToInventory(adventure.item);
@@ -59,7 +67,9 @@ export class AdventureComponent implements OnInit {
 
     const hasNextLevel:boolean = this.currentAdventureIndex < this.currentWorld.adventures.length - 1;
 
-    return canGoNext && hasNextLevel;
+    const hasNextWorld:boolean = ! hasNextLevel && (this.currentWorldIndex < this.worlds.length - 1);
+
+    return canGoNext && (hasNextLevel || hasNextWorld);
   }
 
   public canTake():boolean {
