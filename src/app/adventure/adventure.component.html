@@ -21,6 +21,9 @@
       <button mat-raised-button *ngIf="canAttack()" (click)="act('Attack', currentAdventure)">
         <i class="icon icon-swords"></i> ATTACK
       </button>
+      <button mat-raised-button *ngIf="canSpecialAttack()" (click)="act('SpecialAttack', currentAdventure)">
+        <i class="icon icon-axes"></i> SPECIAL ATTACK
+      </button>
       <button mat-raised-button *ngIf="canTake()" (click)="act('Take', currentAdventure)">
         <i class="icon icon-scroll"></i>TAKE
       </button>

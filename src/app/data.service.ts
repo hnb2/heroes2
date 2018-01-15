@@ -5,6 +5,7 @@ import {Potion} from './potion';
 
 export enum Action {
   Attack = 'Attack',
+  SpecialAttack = 'SpecialAttack',
   Next = 'Next',
   Take = 'Take'
 }

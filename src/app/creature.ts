@@ -32,6 +32,23 @@ export class Creature {
     target.hp = Math.max(0, target.hp - this.atk);
   }
 
+  public canSpecialAttack():boolean {
+    return this.mp > 0;
+  }
+
+  /**
+   * For now, the special attack cost 1 MP and does twice the damage
+   */
+  public specialAttack(target:Creature):void {
+    if (! this.canSpecialAttack()) {
+      return;
+    }
+
+    console.log(`${this.name} special attack ${target.name}`);
+    target.hp = Math.max(0, target.hp - this.atk * 2);
+    this.mp --;
+  }
+
   public isDead():boolean {
     return this.hp === 0;
   }

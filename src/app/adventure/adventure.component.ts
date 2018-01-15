@@ -35,6 +35,12 @@ export class AdventureComponent implements OnInit {
           adventure.creature.attack(this.heroService.getHero());
         }
         break;
+      case Action.SpecialAttack:
+        this.heroService.getHero().specialAttack(adventure.creature);
+        if (! adventure.creature.isDead()) {
+          adventure.creature.attack(this.heroService.getHero());
+        }
+        break;
       case Action.Next:
         if (this.currentAdventureIndex < this.currentWorld.adventures.length - 1) {
           this.currentAdventureIndex ++;
@@ -59,6 +65,12 @@ export class AdventureComponent implements OnInit {
   public canAttack():boolean {
     return this.currentAdventure.creature &&
       ! this.currentAdventure.creature.isDead();
+  }
+
+  public canSpecialAttack():boolean {
+    return this.currentAdventure.creature &&
+      ! this.currentAdventure.creature.isDead() &&
+      this.heroService.getHero().canSpecialAttack();
   }
 
   public canNext():boolean {
