@@ -11,6 +11,7 @@ import {AdventureComponent} from './adventure/adventure.component';
 import {HeroService} from './hero.service';
 import {DataService} from './data.service';
 import { RewardComponent } from './reward/reward.component';
+import { InventoryComponent } from './inventory/inventory.component';
 
 const routes:Routes = [
   {path: '', component: HeroComponent},
@@ -22,7 +23,8 @@ const routes:Routes = [
     AppComponent,
     HeroComponent,
     AdventureComponent,
-    RewardComponent
+    RewardComponent,
+    InventoryComponent
   ],
   imports: [
     RouterModule.forRoot(routes, {enableTracing:false}),

@@ -1,0 +1,17 @@
+<mat-expansion-panel>
+  <mat-expansion-panel-header>
+    <mat-panel-title>Inventory</mat-panel-title>
+    <mat-panel-description>
+      <span *ngIf="hero.inventory.isEmpty()">Empty</span>
+      <span *ngIf="! hero.inventory.isEmpty()">{{hero.inventory.getNumberOfItems()}} item(s)</span>
+    </mat-panel-description>
+  </mat-expansion-panel-header>
+    <ul *ngFor="let item of hero.inventory.getItems()">
+     <li>
+      {{item.name}}
+      <span *ngIf="item.effect">
+        <button mat-button (click)="hero.usePotion(item)">Use</button>
+      </span>
+     </li>
+    </ul>
+</mat-expansion-panel>
