@@ -1,10 +1,10 @@
-<mat-card class="adventure">
-  <mat-card-header>
-    <mat-card-title>World {{currentWorld.level}} - Level {{currentAdventure.level}}</mat-card-title>
-    <mat-card-subtitle>{{currentAdventure.text}}</mat-card-subtitle>
-  </mat-card-header>
+<div class="main">
+  <div class="header">
+    <h2>World {{currentWorld.level}} - Level {{currentAdventure.level}}</h2>
+    <p>{{currentAdventure.text}}</p>
+  </div>
 
-  <mat-card-content>
+  <div class="content">
     <div *ngIf="currentAdventure.creature">
       <span>{{currentAdventure.creature.name}}</span>
       <span *ngIf="! currentAdventure.creature.isDead()"> HP {{currentAdventure.creature.hp}} / {{currentAdventure.creature.hpMax}}</span>
@@ -14,9 +14,9 @@
     <div *ngIf="currentAdventure.item">
       <span>{{currentAdventure.item.name}}</span>
     </div>
-  </mat-card-content>
+  </div>
 
-  <mat-card-actions>
+  <div class="actions">
     <div *ngIf="! hero.isDead()">
       <button mat-raised-button *ngIf="canAttack()" (click)="act('Attack', currentAdventure)">
         <i class="icon icon-swords"></i> ATTACK
@@ -31,8 +31,9 @@
         <i class="icon icon-banner"></i>CONTINUE
       </button>
     </div>
-  </mat-card-actions>
-</mat-card>
+  </div>
+
+</div>
 
 <div *ngIf="showRewards">
   <app-reward [rewards]="currentWorld.rewards" (onChosen)="onChosen($event)"></app-reward>
