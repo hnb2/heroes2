@@ -55,6 +55,12 @@ export class DataService {
           {level: 2, text: 'You can see the end of the forest, finally'},
           {level: 3, text: 'Oh, oh...It\'s actually a bandit camp', creature: new Creature('Forest Bandit', 10, 10, 1)},
           {level: 4, text: 'More are coming !', creature: new Creature('Forest Bandit', 10, 10, 1)},
+          {level: 5, text: 'Archers !', creature: new Creature('Bandit Archer', 6, 6, 3)},
+          {level: 6, text: 'Good thing you took cover, wait, what\'s this on the ground ?', item: new Potion('Minor Health Potion', 10, PotionType.Health)},
+          {level: 7, text: 'You raise your head and see the chief of the bandits looking at you straight in the eyes. Then he said: "Gimme the Carrot."'},
+          {level: 8, text: '"Over my dead body !" you shout, before rushing into him', creature: new Creature('Chief of the Bandits', 15, 15, 2)},
+          {level: 9, text: 'The bandit camp is now a pool of blood, you grab whatever you find and leave the place', item: new Potion('Old Mana Potion', 3, PotionType.Mana)},
+          {level: 10, text: 'You are finally past the dread forest and can see the castle from here.'},
         ],
         rewards: []
       }
