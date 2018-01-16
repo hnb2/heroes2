@@ -34,6 +34,10 @@
   </mat-card-actions>
 </mat-card>
 
+<div *ngIf="showRewards">
+  <app-reward [rewards]="currentWorld.rewards" (onChosen)="onChosen($event)"></app-reward>
+</div>
+
 <button *ngIf="hero.isDead()" mat-raised-button color="primary" routerLink="/" routerLinkActive="active">
   <i class="icon icon-sword"></i>YOU ARE DEAD
 </button>

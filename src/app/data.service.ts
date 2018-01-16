@@ -45,6 +45,7 @@ export class DataService {
         rewards: [
           new Potion('Minor Health Potion', 10, PotionType.Health),
           new Potion('Minor Mana Potion', 5, PotionType.Mana),
+          new Item('A carrot')
         ]
       },
       {

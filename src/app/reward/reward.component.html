@@ -1,0 +1,16 @@
+<mat-grid-list cols="3" rowHeight="12em">
+
+  <mat-grid-tile colspan="1" rowspan="1" *ngFor="let item of rewards">
+
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>{{item.name}}</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <button mat-button (click)="choose(item)">CHOOSE</button>
+      </mat-card-content>
+    </mat-card>
+
+  </mat-grid-tile>
+
+</mat-grid-list>

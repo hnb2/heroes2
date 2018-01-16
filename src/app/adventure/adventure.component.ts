@@ -13,6 +13,7 @@ export class AdventureComponent implements OnInit {
   public currentAdventure:Adventure;
   public currentWorld:World;
   public hero:Creature;
+  public showRewards:boolean = false;
 
   private worlds:World[];
   private currentAdventureIndex:number = 0;
@@ -48,6 +49,13 @@ export class AdventureComponent implements OnInit {
         if (this.currentAdventureIndex < this.currentWorld.adventures.length - 1) {
           this.currentAdventureIndex ++;
           this.currentAdventure = this.currentWorld.adventures[this.currentAdventureIndex];
+
+          // TODO: logic duplicated from canNext()
+          const hasNextLevel:boolean = this.currentAdventureIndex < this.currentWorld.adventures.length - 1;
+          const hasNextWorld:boolean = ! hasNextLevel && (this.currentWorldIndex < this.worlds.length - 1);
+          if (hasNextWorld) {
+            this.showRewards = true;
+          }
         } else {
           this.currentAdventureIndex ++;
           this.currentWorldIndex ++;
@@ -89,6 +97,10 @@ export class AdventureComponent implements OnInit {
 
   public canTake():boolean {
     return this.currentAdventure.item !== undefined;
+  }
+
+  public onChosen(chosen:boolean):void {
+    this.showRewards = false;
   }
 
 }
