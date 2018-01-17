@@ -2,6 +2,17 @@
   No gear
 </p>
 <p *ngIf="hero.weapon">
-  {{hero.weapon.name}}
-  <button mat-button (click)="hero.unequipWeapon(hero.weapon)">Unequip</button>
+    <mat-card >
+      <mat-card-header>
+        <mat-card-title>{{hero.weapon.name}}</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <mat-chip-list>
+          <mat-chip>+ {{hero.weapon.atkModifier}} ATK</mat-chip>
+        </mat-chip-list>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-button (click)="hero.unequipWeapon(hero.weapon)">Unequip</button>
+      </mat-card-actions>
+    </mat-card>
 </p>
