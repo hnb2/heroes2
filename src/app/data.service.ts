@@ -63,7 +63,28 @@ export class DataService {
           {level: 9, text: 'The bandit camp is now a pool of blood, you grab whatever you find and leave the place', item: new Potion('Old Mana Potion', 3, PotionType.Mana)},
           {level: 10, text: 'You are finally past the dread forest and can see the castle from here.'},
         ],
-        rewards: []
+        rewards: [
+          new Potion('Health Potion', 20, PotionType.Health),
+          new Potion('Mana Potion', 10, PotionType.Mana),
+          new Weapon('Used Sword', 3)
+        ]
+      },
+      {
+        level: 3,
+        adventures: [
+          {level: 1, text: 'You reach the village, peasants are gazing at the Holy Carrot'},
+          {level: 2, text: 'Halt ! Shouts a knight, standing in front of you. I challenge you, for the Holy Carrot !', creature: new Creature('Knight', 15, 15, 2)},
+          {level: 3, text: 'The knight\'s squire saw you fight and decides to give you his last potion', item: new Potion('Minor Health Potion', 10, PotionType.Health)},
+          {level: 4, text: 'He then proceed to draw a knife, gotta be fast !', creature: new Creature('Squire', 5, 5, 5)},
+          {level: 5, text: 'The peasants are revolted and starting to gather in front of the barracks, protesting against such barbary'},
+          {level: 6, text: 'The doors of the barracks open slowly, revealing a knight, a giant one !', creature: new Creature('Giant Knight', 20, 20, 3)},
+          {level: 7, text: '"Stop !" you hear from afar, it is the king himself, everyone kneels down'},
+          {level: 8, text: '"Knight of the Carrot", he says. I thank you for your work, here is for your trouble', item: new Potion('Minor Mana Potion', 5, PotionType.Mana)},
+          {level: 9, text: '"Tonight we celebrate !" the king said, before leaving with the Carrot'},
+          {level: 10, text: 'The village is full of life and you enjoy a couple of pints with the peasants. All is well that ends well.'},
+        ],
+        rewards: [
+        ]
       }
     ];
   }
