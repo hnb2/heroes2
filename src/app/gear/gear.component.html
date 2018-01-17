@@ -1,0 +1,7 @@
+<p *ngIf="! hero.weapon">
+  No gear
+</p>
+<p *ngIf="hero.weapon">
+  {{hero.weapon.name}}
+  <button mat-button (click)="hero.unequipWeapon(hero.weapon)">Unequip</button>
+</p>
