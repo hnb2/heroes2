@@ -81,6 +81,9 @@ export class Creature {
   }
 
   public equipWeapon(weapon:Weapon):void {
+    if (this.weapon) {
+      this.unequipWeapon(this.weapon);
+    }
     this.inventory.remove(weapon);
     this.weapon = weapon;
   }
