@@ -7,8 +7,13 @@
   <div class="content">
     <div *ngIf="currentAdventure.creature">
       <span>{{currentAdventure.creature.name}}</span>
-      <span *ngIf="! currentAdventure.creature.isDead()"> HP {{currentAdventure.creature.hp}} / {{currentAdventure.creature.hpMax}}</span>
-      <span *ngIf="currentAdventure.creature.isDead()"> is dead.</span>
+      <mat-chip-list>
+        <mat-chip *ngIf="! currentAdventure.creature.isDead()"> HP {{currentAdventure.creature.hp}} / {{currentAdventure.creature.hpMax}}</mat-chip>
+        <mat-chip *ngIf="! currentAdventure.creature.isDead()"> MP {{currentAdventure.creature.mp}} / {{currentAdventure.creature.mpMax}}</mat-chip>
+        <mat-chip *ngIf="! currentAdventure.creature.isDead()"> ATK {{currentAdventure.creature.atk}}</mat-chip>
+      </mat-chip-list>
+
+      <p *ngIf="currentAdventure.creature.isDead()"> is dead.</p>
     </div>
 
     <div *ngIf="currentAdventure.item">
