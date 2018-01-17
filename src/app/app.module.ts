@@ -2,7 +2,7 @@ import {BrowserModule} from '@angular/platform-browser';
 import {RouterModule, Routes} from '@angular/router';
 import {NgModule} from '@angular/core';
 
-import {MatChipsModule, MatTabsModule, MatButtonModule, MatCardModule, MatGridListModule} from '@angular/material';
+import {MatTooltipModule, MatChipsModule, MatTabsModule, MatButtonModule, MatCardModule, MatGridListModule} from '@angular/material';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 import {AppComponent} from './app.component';
@@ -32,6 +32,7 @@ const routes:Routes = [
     RouterModule.forRoot(routes, {enableTracing:false}),
     BrowserModule,
     BrowserAnimationsModule,
+    MatTooltipModule,
     MatChipsModule,
     MatTabsModule,
     MatButtonModule,
