@@ -49,7 +49,7 @@ export class Creature {
     }
 
     console.log(`${this.name} special attack ${target.name}`);
-    const attack:number = this.weapon ? (this.atk + this.weapon.atkModifier) * 2 : this.atk;
+    const attack:number = this.weapon ? (this.atk + this.weapon.atkModifier) * 2 : this.atk * 2;
     target.hp = Math.max(0, target.hp - attack);
     this.mp --;
   }
