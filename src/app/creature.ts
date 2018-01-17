@@ -1,6 +1,7 @@
 import {Inventory} from './inventory';
 import {Item} from './item';
 import {Potion, PotionType} from './potion';
+import {Weapon} from './weapon';
 
 export class Creature {
 
@@ -11,6 +12,7 @@ export class Creature {
   public mpMax:number;
   public atk:number;
   public inventory:Inventory;
+  public weapon:Weapon|null;
 
   constructor(name:string, hp:number, hpMax:number, atk:number = 0,  mp:number = 0, mpMax:number = 0) {
     this.name = name;
@@ -20,6 +22,7 @@ export class Creature {
     this.mp = mp;
     this.mpMax = mpMax;
     this.inventory = new Inventory();
+    this.weapon = null;
   }
 
   public takeDamage(damage:number):void {
@@ -29,7 +32,8 @@ export class Creature {
 
   public attack(target:Creature):void {
     console.log(`${this.name} attack ${target.name}`);
-    target.hp = Math.max(0, target.hp - this.atk);
+    const attack:number = this.weapon ? this.atk + this.weapon.atkModifier : this.atk;
+    target.hp = Math.max(0, target.hp - attack);
   }
 
   public canSpecialAttack():boolean {
@@ -45,7 +49,8 @@ export class Creature {
     }
 
     console.log(`${this.name} special attack ${target.name}`);
-    target.hp = Math.max(0, target.hp - this.atk * 2);
+    const attack:number = this.weapon ? (this.atk + this.weapon.atkModifier) * 2 : this.atk;
+    target.hp = Math.max(0, target.hp - attack);
     this.mp --;
   }
 
@@ -73,5 +78,15 @@ export class Creature {
     }
 
     this.inventory.remove(potion);
+  }
+
+  public equipWeapon(weapon:Weapon):void {
+    this.inventory.remove(weapon);
+    this.weapon = weapon;
+  }
+
+  public unequipWeapon(weapon:Weapon):void {
+    this.weapon = null;
+    this.inventory.add(weapon);
   }
 }

@@ -24,6 +24,7 @@ export class HeroService {
     this.hero.mp = 10;
     this.hero.mpMax = 10;
     this.hero.inventory.clear();
+    this.hero.weapon = null;
   }
 
 }

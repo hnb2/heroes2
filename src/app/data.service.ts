@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import {Creature} from './creature';
 import {Item} from './item';
 import {Potion, PotionType} from './potion';
+import {Weapon} from './weapon';
 
 export enum Action {
   Attack = 'Attack',
@@ -45,7 +46,7 @@ export class DataService {
         rewards: [
           new Potion('Minor Health Potion', 10, PotionType.Health),
           new Potion('Minor Mana Potion', 5, PotionType.Mana),
-          new Item('A carrot')
+          new Weapon('Training Sword', 2)
         ]
       },
       {

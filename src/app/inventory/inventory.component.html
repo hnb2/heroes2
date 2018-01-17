@@ -8,6 +8,9 @@
       <span *ngIf="item.effect">
         <button mat-button (click)="hero.usePotion(item)">Use</button>
       </span>
+      <span *ngIf="item.atkModifier">
+        <button mat-button (click)="hero.equipWeapon(item)">Equip</button>
+      </span>
     </p>
   </mat-grid-tile>
 </mat-grid-list>
