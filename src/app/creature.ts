@@ -32,7 +32,7 @@ export class Creature {
 
   public attack(target:Creature):void {
     console.log(`${this.name} attack ${target.name}`);
-    const attack:number = this.weapon ? this.atk + this.weapon.atkModifier : this.atk;
+    const attack:number = this.getTotalAtk();
     target.hp = Math.max(0, target.hp - attack);
   }
 
@@ -49,7 +49,7 @@ export class Creature {
     }
 
     console.log(`${this.name} special attack ${target.name}`);
-    const attack:number = this.weapon ? (this.atk + this.weapon.atkModifier) * 2 : this.atk * 2;
+    const attack:number = this.getTotalAtk() * 2;
     target.hp = Math.max(0, target.hp - attack);
     this.mp --;
   }
@@ -91,5 +91,9 @@ export class Creature {
   public unequipWeapon(weapon:Weapon):void {
     this.weapon = null;
     this.inventory.add(weapon);
+  }
+
+  public getTotalAtk():number {
+    return this.weapon ? this.atk + this.weapon.atkModifier : this.atk;
   }
 }
