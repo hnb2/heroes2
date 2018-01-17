@@ -1,16 +1,35 @@
 <h2 *ngIf="hero.inventory.isEmpty()">Empty</h2>
 <h2 *ngIf="! hero.inventory.isEmpty()">{{hero.inventory.getNumberOfItems()}} item(s)</h2>
 
-<mat-grid-list cols="3" rowHeight="5em">
+<mat-grid-list cols="3" rowHeight="10em">
   <mat-grid-tile colspan="1" rowspan="1" *ngFor="let item of hero.inventory.getItems()">
-    <p>
-      {{item.name}}
-      <span *ngIf="item.effect">
-        <button mat-button (click)="hero.usePotion(item)">Use</button>
-      </span>
-      <span *ngIf="item.atkModifier">
-        <button mat-button (click)="hero.equipWeapon(item)">Equip</button>
-      </span>
-    </p>
+
+    <mat-card >
+      <mat-card-header>
+        <mat-card-title>{{item.name}}</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <span *ngIf="item.effect">
+          <mat-chip-list>
+            <mat-chip *ngIf="item.type === 'Health'">+ {{item.effect}} HP</mat-chip>
+            <mat-chip *ngIf="item.type === 'Mana'">+ {{item.effect}} MP</mat-chip>
+          </mat-chip-list>
+        </span>
+        <span *ngIf="item.atkModifier">
+          <mat-chip-list>
+            <mat-chip>+ {{item.atkModifier}} ATK</mat-chip>
+          </mat-chip-list>
+        </span>
+      </mat-card-content>
+      <mat-card-actions>
+        <span *ngIf="item.effect">
+          <button mat-button (click)="hero.usePotion(item)">Use</button>
+        </span>
+        <span *ngIf="item.atkModifier">
+          <button mat-button (click)="hero.equipWeapon(item)">Equip</button>
+        </span>
+      </mat-card-actions>
+    </mat-card>
+
   </mat-grid-tile>
 </mat-grid-list>
