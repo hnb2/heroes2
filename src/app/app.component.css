@@ -20,4 +20,5 @@
 .bar > p {
   position: absolute;
   line-height: 0;
+  margin-left: 1em;
 }
