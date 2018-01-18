@@ -13,6 +13,7 @@ import {DataService} from './data.service';
 import { RewardComponent } from './reward/reward.component';
 import { InventoryComponent } from './inventory/inventory.component';
 import { GearComponent } from './gear/gear.component';
+import { ItemComponent } from './item/item.component';
 
 const routes:Routes = [
   {path: '', component: HeroComponent},
@@ -26,7 +27,8 @@ const routes:Routes = [
     AdventureComponent,
     RewardComponent,
     InventoryComponent,
-    GearComponent
+    GearComponent,
+    ItemComponent
   ],
   imports: [
     RouterModule.forRoot(routes, {enableTracing:false}),

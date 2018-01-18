@@ -3,33 +3,6 @@
 
 <mat-grid-list cols="3" rowHeight="10em">
   <mat-grid-tile colspan="1" rowspan="1" *ngFor="let item of hero.inventory.getItems()">
-
-    <mat-card >
-      <mat-card-header>
-        <mat-card-title>{{item.name}}</mat-card-title>
-      </mat-card-header>
-      <mat-card-content>
-        <span *ngIf="item.effect">
-          <mat-chip-list>
-            <mat-chip *ngIf="item.type === 'Health'">+ {{item.effect}} HP</mat-chip>
-            <mat-chip *ngIf="item.type === 'Mana'">+ {{item.effect}} MP</mat-chip>
-          </mat-chip-list>
-        </span>
-        <span *ngIf="item.atkModifier">
-          <mat-chip-list>
-            <mat-chip>+ {{item.atkModifier}} ATK</mat-chip>
-          </mat-chip-list>
-        </span>
-      </mat-card-content>
-      <mat-card-actions>
-        <span *ngIf="item.effect">
-          <button mat-button (click)="hero.usePotion(item)">Use</button>
-        </span>
-        <span *ngIf="item.atkModifier">
-          <button mat-button (click)="hero.equipWeapon(item)">Equip</button>
-        </span>
-      </mat-card-actions>
-    </mat-card>
-
+    <app-item [item]="item" [hero]="hero"></app-item>
   </mat-grid-tile>
 </mat-grid-list>
