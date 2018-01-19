@@ -1,8 +1,9 @@
 import {BrowserModule} from '@angular/platform-browser';
 import {RouterModule, Routes} from '@angular/router';
 import {NgModule} from '@angular/core';
+import {FormsModule} from '@angular/forms';
 
-import {MatTooltipModule, MatChipsModule, MatTabsModule, MatButtonModule, MatCardModule, MatGridListModule} from '@angular/material';
+import {MatInputModule, MatFormFieldModule, MatTooltipModule, MatChipsModule, MatTabsModule, MatButtonModule, MatCardModule, MatGridListModule} from '@angular/material';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 import {AppComponent} from './app.component';
@@ -34,6 +35,9 @@ const routes:Routes = [
     RouterModule.forRoot(routes, {enableTracing:false}),
     BrowserModule,
     BrowserAnimationsModule,
+    FormsModule,
+    MatInputModule,
+    MatFormFieldModule,
     MatTooltipModule,
     MatChipsModule,
     MatTabsModule,
