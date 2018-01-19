@@ -10,7 +10,7 @@
       <span *ngIf="currentAdventure.creature.isDead()"> is dead.</span>
 
       <mat-chip-list>
-        <mat-chip *ngIf="! currentAdventure.creature.isDead()"> HP {{currentAdventure.creature.hp}} / {{currentAdventure.creature.hpMax}}</mat-chip>
+        <mat-chip color="accent" selected="true" *ngIf="! currentAdventure.creature.isDead()"> HP {{currentAdventure.creature.hp}} / {{currentAdventure.creature.hpMax}}</mat-chip>
         <mat-chip *ngIf="! currentAdventure.creature.isDead()"> MP {{currentAdventure.creature.mp}} / {{currentAdventure.creature.mpMax}}</mat-chip>
         <mat-chip *ngIf="! currentAdventure.creature.isDead()"> ATK {{currentAdventure.creature.atk}}</mat-chip>
       </mat-chip-list>
