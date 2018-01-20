@@ -92,7 +92,8 @@ export class AdventureComponent implements OnInit {
 
     const hasNextWorld:boolean = ! hasNextLevel && (this.currentWorldIndex < this.worlds.length - 1);
 
-    return canGoNext && (hasNextLevel || hasNextWorld);
+    return canGoNext && ! this.canTake() && (hasNextLevel || hasNextWorld);
+
   }
 
   public canTake():boolean {
